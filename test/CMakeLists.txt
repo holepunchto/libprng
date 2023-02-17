@@ -9,18 +9,18 @@ foreach(test IN LISTS tests)
   target_link_libraries(
     ${test}
     PRIVATE
-      prng_shared
-  )
-
-  target_include_directories(
-    ${test}
-    PRIVATE
-      $<TARGET_PROPERTY:prng,INCLUDE_DIRECTORIES>
+      prng_static
   )
 
   add_test(
     NAME ${test}
     COMMAND ${test}
     WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
+  )
+
+  set_tests_properties(
+    ${test}
+    PROPERTIES
+    TIMEOUT 30000
   )
 endforeach()
