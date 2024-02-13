@@ -27,7 +27,7 @@ target_include_directories(
     include
 )
 
-add_library(prng_shared SHARED $<TARGET_OBJECTS:prng>)
+add_library(prng_shared SHARED)
 
 set_target_properties(
   prng_shared
@@ -36,12 +36,24 @@ set_target_properties(
   WINDOWS_EXPORT_ALL_SYMBOLS ON
 )
 
-add_library(prng_static STATIC $<TARGET_OBJECTS:prng>)
+target_link_libraries(
+  prng_shared
+  PUBLIC
+    prng
+)
+
+add_library(prng_static STATIC)
 
 set_target_properties(
   prng_static
   PROPERTIES
   OUTPUT_NAME prng
+)
+
+target_link_libraries(
+  prng_static
+  PUBLIC
+    prng
 )
 
 install(TARGETS prng_shared prng_static)
