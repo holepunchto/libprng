@@ -28,15 +28,33 @@ prng_next_bool(prng_t *generator) {
   return xoshiro256pp(generator->state) >> 63;
 }
 
-int32_t
-prng_next_int32(prng_t *generator) {
+uint32_t
+prng_next_uint32(prng_t *generator) {
   return xoshiro256pp(generator->state) >> 32;
 }
 
-int64_t
-prng_next_int64(prng_t *generator) {
+extern uint32_t
+prng_next_uint32_range(prng_t *generator, uint32_t min, uint32_t max);
+
+extern int32_t
+prng_next_int32(prng_t *generator);
+
+extern int32_t
+prng_next_int32_range(prng_t *generator, int32_t min, int32_t max);
+
+uint64_t
+prng_next_uint64(prng_t *generator) {
   return xoshiro256pp(generator->state);
 }
+
+extern uint64_t
+prng_next_uint64_range(prng_t *generator, uint64_t min, uint64_t max);
+
+extern int64_t
+prng_next_int64(prng_t *generator);
+
+extern int64_t
+prng_next_int64_range(prng_t *generator, int64_t min, int64_t max);
 
 double
 prng_next_double(prng_t *generator) {
