@@ -2,6 +2,7 @@ list(APPEND tests
   bool
   double
   int32
+  int32-range
   int64
 )
 
