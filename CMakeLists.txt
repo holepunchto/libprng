@@ -48,6 +48,7 @@ set_target_properties(
   prng_static
   PROPERTIES
   OUTPUT_NAME prng
+  PREFIX lib
 )
 
 target_link_libraries(
