@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "name": "libprng",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/holepunchto/libprng.git"
+  },
+  "author": "Holepunch",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/holepunchto/libprng/issues"
+  },
+  "homepage": "https://github.com/holepunchto/libprng#readme"
+}
