@@ -1,6 +1,8 @@
 list(APPEND tests
   bool
+  double
   int32
+  int64
 )
 
 foreach(test IN LISTS tests)

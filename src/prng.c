@@ -40,9 +40,5 @@ prng_next_int64(prng_t *generator) {
 
 double
 prng_next_double(prng_t *generator) {
-  static const uint64_t exp = 0x3ff0000000000000;
-
-  uint64_t k = exp | xoshiro256pp(generator->state) >> 12;
-
-  return ((double) k) - 1;
+  return (xoshiro256pp(generator->state) >> 11) * 0x1.0p-53;
 }
