@@ -11,11 +11,12 @@ extern "C" {
 
 typedef struct prng_s prng_t;
 
-int
-prng_init (int64_t seed, prng_t **result);
+struct prng_s {
+  uint64_t state[4];
+};
 
-void
-prng_destroy (prng_t *generator);
+int
+prng_init (prng_t *generator, int64_t seed);
 
 bool
 prng_next_bool (prng_t *generator);
