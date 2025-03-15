@@ -8,4 +8,4 @@ See [`include/prng.h`](include/prng.h) for the public API.
 
 ## License
 
-ISC
+Apache-2.0
