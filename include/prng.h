@@ -16,7 +16,7 @@ struct prng_s {
 };
 
 int
-prng_init(prng_t *generator, int64_t seed);
+prng_init(prng_t *generator, uint64_t seed);
 
 bool
 prng_next_bool(prng_t *generator);

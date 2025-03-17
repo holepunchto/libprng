@@ -7,9 +7,9 @@
 #include "xoshiro256pp.h"
 
 int
-prng_init(prng_t *generator, int64_t seed) {
+prng_init(prng_t *generator, uint64_t seed) {
   for (int i = 0; i < 4; i++) {
-    uint64_t k = generator->state[i] = splitmix64((uint64_t *) &seed);
+    uint64_t k = generator->state[i] = splitmix64(&seed);
 
     if (k == 0) return -1;
   }
