@@ -1,8 +1,6 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
-#include <stdlib.h>
-#include <string.h>
 
 #include "../include/prng.h"
 #include "splitmix64.h"
@@ -10,15 +8,11 @@
 
 int
 prng_init(prng_t *generator, int64_t seed) {
-  uint64_t state[4];
-
   for (int i = 0; i < 4; i++) {
-    uint64_t k = state[i] = splitmix64((uint64_t *) &seed);
+    uint64_t k = generator->state[i] = splitmix64((uint64_t *) &seed);
 
     if (k == 0) return -1;
   }
-
-  memcpy(generator->state, state, sizeof(state));
 
   return 0;
 }
