@@ -73,6 +73,9 @@ prng_next_int64_range(prng_t *generator, int64_t min, int64_t max) {
   return prng_next_uint64_range(generator, min, max);
 }
 
+float
+prng_next_float(prng_t *generator);
+
 double
 prng_next_double(prng_t *generator);
 

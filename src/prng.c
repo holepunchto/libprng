@@ -56,6 +56,11 @@ prng_next_int64(prng_t *generator);
 extern int64_t
 prng_next_int64_range(prng_t *generator, int64_t min, int64_t max);
 
+float
+prng_next_float(prng_t *generator) {
+  return (xoshiro256pp(generator->state) >> 40) * 0x1.0p-24f;
+}
+
 double
 prng_next_double(prng_t *generator) {
   return (xoshiro256pp(generator->state) >> 11) * 0x1.0p-53;
